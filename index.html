@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Biblioteca</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>📚 Sistema de Biblioteca 📚</h1>
+  </header>
+
+  <main class="container">
+    <!-- Seção: Cadastro de Livros -->
+    <section class="card">
+      <h2>Cadastrar Livro</h2>
+      <form id="form-livro">
+        <div class="form-group">
+          <label for="livro-titulo">Título do Livro:</label>
+          <input type="text" id="livro-titulo" required placeholder="Ex: Dom Casmurro">
+        </div>
+        <div class="form-group">
+          <label for="livro-autor">Autor:</label>
+          <input type="text" id="livro-autor" required placeholder="Ex: Machado de Assis">
+        </div>
+        <button type="submit" class="btn btn-primary">Cadastrar Livro</button>
+      </form>
+    </section>
+
+    <!-- Seção: Cadastro de Usuários -->
+    <section class="card">
+      <h2>Cadastrar Usuário</h2>
+      <form id="form-usuario">
+        <div class="form-group">
+          <label for="usuario-nome">Nome do Usuário:</label>
+          <input type="text" id="usuario-nome" required placeholder="Ex: Maria Silva">
+        </div>
+        <div class="form-group">
+          <label for="usuario-email">E-mail:</label>
+          <input type="email" id="usuario-email" required placeholder="Ex: maria.silva@email.com">
+        </div>
+        <button type="submit" class="btn btn-primary">Cadastrar Usuário</button>
+      </form>
+    </section>
+
+    <!-- Seção: Novo Empréstimo -->
+    <section class="card">
+      <h2>Registrar Empréstimo</h2>
+      <form id="form-emprestimo">
+        <div class="form-group">
+          <label for="select-livro">Selecione o Livro:</label>
+          <select id="select-livro" required>
+            <option value="">Selecione...</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="select-usuario">Selecione o Usuário:</label>
+          <select id="select-usuario" required>
+            <option value="">Selecione...</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-success">Registrar Empréstimo</button>
+      </form>
+    </section>
+
+    <!-- Seção Inferior com Abas -->
+    <section class="card full-width">
+      <div class="tabs">
+        <button class="tab-btn active" onclick="alternarAba('emprestimos', this)">📜 Empréstimos</button>
+        <button class="tab-btn" onclick="alternarAba('livros', this)">📖 Livros Cadastrados</button>
+        <button class="tab-btn" onclick="alternarAba('usuarios', this)">👤 Usuários Cadastrados</button>
+      </div>
+
+      <!-- Conteúdo da Aba: Empréstimos -->
+      <div id="aba-emprestimos" class="tab-content active">
+        <h2>Histórico de Empréstimos</h2>
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>Livro</th>
+                <th>Autor</th>
+                <th>Usuário</th>
+                <th>Data Empréstimo</th>
+                <th>Data Devolução</th>
+                <th>Status</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="tabela-emprestimos">
+              <!-- Linhas geradas via JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Conteúdo da Aba: Livros -->
+      <div id="aba-livros" class="tab-content">
+        <h2>Livros Cadastrados</h2>
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="tabela-livros">
+              <!-- Linhas geradas via JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Conteúdo da Aba: Usuários -->
+      <div id="aba-usuarios" class="tab-content">
+        <h2>Usuários Cadastrados</h2>
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="tabela-usuarios">
+              <!-- Linhas geradas via JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
